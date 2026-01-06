@@ -12,17 +12,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //Root widget
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          centerTitle: true,
-          title: Text('What do you thing you will mostly use?'),
-        ),
-
+floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         body: Column(
+
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.all(16.0),
+            SizedBox(height: 100,),
+            Align(alignment: Alignment.topCenter,child: Text('What do you thing you will mostly use?')),
+            Align(alignment: Alignment.center,
               child: Text(
                 'Top on all that apply.This will help us\n customise your home page',
                 textAlign: TextAlign.center,
@@ -36,4 +33,8 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+class Example {
+  String? name;
+  double? age;
 }
