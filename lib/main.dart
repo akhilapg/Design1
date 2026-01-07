@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //Root widget
       home: Scaffold(
-floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         body: Column(
 
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,8 +32,4 @@ floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
-}
-class Example {
-  String? name;
-  double? age;
 }
