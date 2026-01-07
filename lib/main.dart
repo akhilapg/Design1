@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //Root widget
+      debugShowCheckedModeBanner: true, //Root widget
       home: Scaffold(
         body: Column(
 
