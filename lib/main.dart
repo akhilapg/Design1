@@ -1,35 +1,15 @@
+import 'package:design1_iotapp/first_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+void main() { //this is entrypoint of this app when the app starting time main function is calling by compiler
+  runApp(MyApp());// this is calling for rendrring our first app
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget { //this is iniatal root of widget
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: true, //Root widget
-      home: Scaffold(
-        body: Column(
-
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 100,),
-            Align(alignment: Alignment.topCenter,child: Text('What do you thing you will mostly use?')),
-            Align(alignment: Alignment.center,
-              child: Text(
-                'Top on all that apply.This will help us\n customise your home page',
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
-
-      ),
-    );
+    return  MaterialApp(home: FirstScreen(),theme: ThemeData(useMaterial3: true,primaryColor: Colors.black),);
   }
 }
