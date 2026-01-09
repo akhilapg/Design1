@@ -1,3 +1,4 @@
+import 'package:design1_iotapp/second_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatelessWidget {
@@ -50,7 +51,12 @@ class FirstScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SecondScreen()),
+              );
+            },
             child: Center(
               child: Text(
                 "Next",
