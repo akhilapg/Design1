@@ -15,7 +15,7 @@ class SecondScreen extends StatelessWidget {
       body: Column(
         children: [
           Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
             children: [
               Text('JUNE 14 2020', style: TextStyle(fontSize: 15)),
               Text(
