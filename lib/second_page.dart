@@ -81,60 +81,31 @@ class SecondScreen extends StatelessWidget {
           Row(
             //row3
             children: [
-              Column(children: [SizedBox(width: 20)]),
-              secondIconContainer(Icons.home, "ENTRY", "OPEN"),
-              secondIconContainer(Icons.lightbulb, "LIGHTS", "ON"),
+                secondIconContainer(Icons.home, "ENTRY", "OPEN",true,true,Colors.green),
+              secondIconContainer(Icons.lightbulb, "LIGHTS", "ON",true,false,Colors.green),
             ],
           ),
 
-          // SizedBox(height: 10),
-          // Row(
-          //   //row3
-          //   children: [
-          //     Column(children: [SizedBox(width: 20)]),
-          //     secondIconContainer(Icons.leak_add, "LEAKS", ""),
-          //     secondIconContainer(Icons.light, "LIGHTS", "ON"),
-          //   ],
-          // ),
+          SizedBox(height: 10),
+          Row(
+            //row3
+            children: [
+              secondIconContainer(Icons.leak_add, "LEAKS", "NOT DETECTED",false,false,Colors.grey),
+              secondIconContainer(Icons.light, "LIGHTS", "OFF",true,true,Colors.grey),
+            ],
+          ),
           SizedBox(height: 10),
 
-          // ElevatedButton(
-          //   style: ElevatedButton.styleFrom(
-          //     // backgroundColor: Colors.red,
-          //     // maximumSize: Size(400, 50),
-          //     // minimumSize: Size(150,48),
-          //     shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(30),
-          //     ),
-          //   ),
-          //   onPressed: () {},
-          //   child: Row(
-          //     children: [
-          //       Center(
-          //         child: Text(
-          //           "ADD\nNEW CONTROL",
-          //           style: TextStyle(
-          //             color: Colors.black,
-          //             fontWeight: FontWeight.bold,
-          //             fontSize: 15,
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
+
           Container(
             width: 300,
             height: 70,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-            // child: Row(children: [Text("ADD\nNEW CONTROL"), Icon(Icons.add)]),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white),
             child: Row(
               children: [
-                // Text("ADD\nNEW CONTROL"),
-                // ElevatedButton(onPressed: () {}, child: Icon(Icons.add))
                 Expanded(child: Text("ADD\nNEW CONTROL")),
                 Spacer(),
-                Switch(value: , onChanged: onChanged)
+                Icon(Icons.add)
               ],
             ),
           ),
@@ -144,7 +115,7 @@ class SecondScreen extends StatelessWidget {
   }
 }
 
-Widget secondIconContainer(IconData icon, String text, String status) {
+Widget secondIconContainer(IconData icon, String text, String status,bool isSwitchNeeded,bool isSwitch,Color color) {
   return Column(
     children: [
       Row(
@@ -184,15 +155,16 @@ Widget secondIconContainer(IconData icon, String text, String status) {
                     ),
                   ],
                 ),
-                Transform.rotate(
+               isSwitchNeeded? Transform.rotate(
                   // alignment: AlignmentGeometry.directional(),
                   angle: -3.14159 / 2, // Rotate 90 degrees counterclockwise
                   child: Switch(
-                    value: true,
+                    value: isSwitch,
                     onChanged: (bool value) {},
-                    activeThumbColor: Colors.green,
+                    activeThumbColor: color,
+                    inactiveThumbColor: color,
                   ),
-                ),
+                ): SizedBox(),
               ],
             ),
           ),
