@@ -1,3 +1,5 @@
+// import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
@@ -8,27 +10,194 @@ class SecondScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFecf5fa),
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+        //appbar
+        backgroundColor: Color(0xFFecf5fa),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.menu),
+        ),
         title: const Text('Home'),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add_alert))],
+        centerTitle: true,
+        actions: [
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+            ),
+            child: Center(child: Icon(Icons.notifications_active)),
+          ),
+        ],
       ),
       body: Column(
+        //column
         children: [
           Row(
-
+            //row1
             children: [
-              Text('JUNE 14 2020', style: TextStyle(fontSize: 15)),
-              Text(
-                'Good Morning,\nMichael',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              // column1 image
+              SizedBox(width: 10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(23),
+                child: Image.asset(
+                  "assets/images/profile_pic.jpg",
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+              SizedBox(width: 20),
+              Column(
+                //row1 column2 text
+                crossAxisAlignment: CrossAxisAlignment.start, //text arrangement
+                children: [
+                  Text(
+                    //first text
+                    'JUNE 14 2020',
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  Text(
+                    //second text
+                    'Good Morning,\nMichael',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                  ),
+                ],
               ),
             ],
           ),
+          SizedBox(height: 20), //gap
+          Row(
+            //row2
+            children: [
+              Text("40^\nTEMPERATURE"),
+              SizedBox(width: 150), //gap
+              Text("58%\nHUMIDITY"),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            //row3
+            children: [
+              Column(children: [SizedBox(width: 20)]),
+              secondIconContainer(Icons.home, "ENTRY", "OPEN"),
+              secondIconContainer(Icons.lightbulb, "LIGHTS", "ON"),
+            ],
+          ),
 
+          // SizedBox(height: 10),
+          // Row(
+          //   //row3
+          //   children: [
+          //     Column(children: [SizedBox(width: 20)]),
+          //     secondIconContainer(Icons.leak_add, "LEAKS", ""),
+          //     secondIconContainer(Icons.light, "LIGHTS", "ON"),
+          //   ],
+          // ),
+          SizedBox(height: 10),
 
+          // ElevatedButton(
+          //   style: ElevatedButton.styleFrom(
+          //     // backgroundColor: Colors.red,
+          //     // maximumSize: Size(400, 50),
+          //     // minimumSize: Size(150,48),
+          //     shape: RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.circular(30),
+          //     ),
+          //   ),
+          //   onPressed: () {},
+          //   child: Row(
+          //     children: [
+          //       Center(
+          //         child: Text(
+          //           "ADD\nNEW CONTROL",
+          //           style: TextStyle(
+          //             color: Colors.black,
+          //             fontWeight: FontWeight.bold,
+          //             fontSize: 15,
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          Container(
+            width: 300,
+            height: 70,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+            // child: Row(children: [Text("ADD\nNEW CONTROL"), Icon(Icons.add)]),
+            child: Row(
+              children: [
+                // Text("ADD\nNEW CONTROL"),
+                // ElevatedButton(onPressed: () {}, child: Icon(Icons.add))
+                Expanded(child: Text("ADD\nNEW CONTROL")),
+                Spacer(),
+                Switch(value: , onChanged: onChanged)
+              ],
+            ),
+          ),
         ],
-      )
+      ),
     );
   }
 }
 
+Widget secondIconContainer(IconData icon, String text, String status) {
+  return Column(
+    children: [
+      Row(
+        //row3
+        children: [
+          SizedBox(width: 20),
+          Container(
+            //container design
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              children: [
+                Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10),
+                    Center(child: Icon(icon, size: 30)),
+                    SizedBox(height: 10),
+                    Text(
+                      text,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                    ),
+                    Text(
+                      status,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ],
+                ),
+                Transform.rotate(
+                  // alignment: AlignmentGeometry.directional(),
+                  angle: -3.14159 / 2, // Rotate 90 degrees counterclockwise
+                  child: Switch(
+                    value: true,
+                    onChanged: (bool value) {},
+                    activeThumbColor: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ],
+  );
+}
