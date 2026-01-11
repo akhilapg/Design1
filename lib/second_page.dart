@@ -18,7 +18,10 @@ class SecondScreen extends StatelessWidget {
           },
           icon: Icon(Icons.menu),
         ),
-        title: const Text('Home'),
+        title: const Text(
+          'Home',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         actions: [
           Container(
@@ -57,12 +60,12 @@ class SecondScreen extends StatelessWidget {
                   Text(
                     //first text
                     'JUNE 14 2020',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 10),
                   ),
                   Text(
                     //second text
                     'Good Morning,\nMichael',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                   ),
                 ],
               ),
@@ -72,17 +75,34 @@ class SecondScreen extends StatelessWidget {
           Row(
             //row2
             children: [
+              SizedBox(width: 10),
               Text("40^\nTEMPERATURE"),
-              SizedBox(width: 150), //gap
+              SizedBox(width: 90), //gap
               Text("58%\nHUMIDITY"),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Row(
             //row3
             children: [
-                secondIconContainer(Icons.home, "ENTRY", "OPEN",true,true,Colors.green),
-              secondIconContainer(Icons.lightbulb, "LIGHTS", "ON",true,false,Colors.green),
+              // SizedBox(width: 10),
+              secondIconContainer(
+                Icons.home,
+                "ENTRY",
+                "OPEN",
+                true,
+                true,
+                Colors.green,
+              ),
+              SizedBox(width: 20),
+              secondIconContainer(
+                Icons.lightbulb,
+                "LIGHTS",
+                "ON",
+                true,
+                false,
+                Colors.green,
+              ),
             ],
           ),
 
@@ -90,22 +110,51 @@ class SecondScreen extends StatelessWidget {
           Row(
             //row3
             children: [
-              secondIconContainer(Icons.leak_add, "LEAKS", "NOT DETECTED",false,false,Colors.grey),
-              secondIconContainer(Icons.light, "LIGHTS", "OFF",true,true,Colors.grey),
+              secondIconContainer(
+                Icons.leak_add,
+                "LEAKS",
+                "NOT DETECTED",
+                false,
+                false,
+                Colors.grey
+              ),
+              SizedBox(width: 20),
+              secondIconContainer(
+                Icons.device_thermostat,
+                "THERMOSTAT",
+                "OFF",
+                true,
+                true,
+                Colors.grey,
+              ),
             ],
           ),
           SizedBox(height: 10),
-
 
           Container(
             width: 300,
             height: 70,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Color(0xFFecf5fa),
+              border: Border(
+                top: BorderSide(color: Colors.white, width: 3.0),
+                left: BorderSide(color: Colors.white, width: 3.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white,
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(child: Text("ADD\nNEW CONTROL")),
+                Expanded(child: Text("   ADD\n   NEW CONTROL")),
                 Spacer(),
-                Icon(Icons.add)
+                Icon(Icons.add),
               ],
             ),
           ),
@@ -115,19 +164,37 @@ class SecondScreen extends StatelessWidget {
   }
 }
 
-Widget secondIconContainer(IconData icon, String text, String status,bool isSwitchNeeded,bool isSwitch,Color color) {
+Widget secondIconContainer(
+  IconData icon,
+  String text,
+  String status,
+  bool isSwitchNeeded,
+  bool isSwitch,
+  Color color,
+) {
   return Column(
     children: [
       Row(
         //row3
         children: [
-          SizedBox(width: 20),
+          SizedBox(width: 40),
           Container(
             //container design
-            width: 120,
+            width: 150,
             height: 120,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Color(0xFFecf5fa),
+              border: Border(
+                top: BorderSide(color: Colors.white, width: 3.0),
+                left: BorderSide(color: Colors.white, width: 3.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.white,
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
+              ],
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -142,7 +209,7 @@ Widget secondIconContainer(IconData icon, String text, String status,bool isSwit
                       text,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                        fontSize: 12,
                       ),
                     ),
                     Text(
@@ -155,16 +222,19 @@ Widget secondIconContainer(IconData icon, String text, String status,bool isSwit
                     ),
                   ],
                 ),
-               isSwitchNeeded? Transform.rotate(
-                  // alignment: AlignmentGeometry.directional(),
-                  angle: -3.14159 / 2, // Rotate 90 degrees counterclockwise
-                  child: Switch(
-                    value: isSwitch,
-                    onChanged: (bool value) {},
-                    activeThumbColor: color,
-                    inactiveThumbColor: color,
-                  ),
-                ): SizedBox(),
+                isSwitchNeeded
+                    ? Transform.rotate(
+                        // alignment: AlignmentGeometry.directional(),
+                        angle:
+                            -3.14159 / 2, // Rotate 90 degrees counterclockwise
+                        child: Switch(
+                          value: isSwitch,
+                          onChanged: (bool value) {},
+                          activeThumbColor: color,
+                          inactiveThumbColor: color,
+                        ),
+                      )
+                    : SizedBox(),
               ],
             ),
           ),
