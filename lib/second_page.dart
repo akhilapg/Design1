@@ -5,6 +5,9 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final mediaQuery = MediaQuery.of(context);
+    // final screenWidth = MediaQuery.size.width;
+    // final screenHeight = MediaQuery.size.height;
     return Scaffold(
       backgroundColor: Color(0xFFecf5fa),
       appBar: AppBar(
@@ -23,6 +26,8 @@ class SecondScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           Container(
+            // width: screenWidth * 0.8,
+            // height: screenHeight * 0.3,
             width: 40,
             height: 40,
             decoration: BoxDecoration(
@@ -89,17 +94,17 @@ class SecondScreen extends StatelessWidget {
                   // SizedBox(width: 10),
                   secondIconContainer(
                     Icons.home,
-                    "ENTRY",
-                    "OPEN",
+                    "   ENTRY",
+                    "   OPEN",
                     true,
                     true,
                     Colors.green,1
                   ),
-                  SizedBox(width: 20),
+                  // SizedBox(width: 20),
                   secondIconContainer(
                     Icons.lightbulb,
-                    "LIGHTS",
-                    "ON",
+                    "   LIGHTS",
+                    "   ON",
                     true,
                     false,
                     Colors.green,1
@@ -117,7 +122,7 @@ class SecondScreen extends StatelessWidget {
                       false,
                       Colors.grey,2
                   ),
-                  SizedBox(width: 20),
+                  // SizedBox(width: 20),
                   secondIconContainer(
                       Icons.device_thermostat,
                       "THERMOSTAT",
@@ -128,11 +133,11 @@ class SecondScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 15),
 
               Container(
-                width: 300,
-                height: 70,
+                width: 330,
+                height: 60,
                 margin: EdgeInsets.only(left: 40),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -160,9 +165,6 @@ class SecondScreen extends StatelessWidget {
               ),
             ],
           ),
-
-
-
         ],
       ),
     );
@@ -185,8 +187,9 @@ Widget secondIconContainer(
           SizedBox(width: 40),
           Container(
             //container design
-            width: 150,
-            height: 120,
+            width: 140,
+            height: 140,
+            alignment:Alignment(0.0, 0.0),
             decoration: BoxDecoration(
               color: Color(0xFFecf5fa),
               border: Border(
@@ -214,7 +217,7 @@ Widget secondIconContainer(
                       text,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 12,
+                        fontSize: 11,
                       ),
                     ),
                     Text(
