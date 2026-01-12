@@ -80,82 +80,89 @@ class SecondScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20),
-          Row(
-            //row3
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // SizedBox(width: 10),
-              secondIconContainer(
-                Icons.home,
-                "ENTRY",
-                "OPEN",
-                true,
-                true,
-                Colors.green,1
+              Row(
+                //row3
+                children: [
+                  // SizedBox(width: 10),
+                  secondIconContainer(
+                    Icons.home,
+                    "ENTRY",
+                    "OPEN",
+                    true,
+                    true,
+                    Colors.green,1
+                  ),
+                  SizedBox(width: 20),
+                  secondIconContainer(
+                    Icons.lightbulb,
+                    "LIGHTS",
+                    "ON",
+                    true,
+                    false,
+                    Colors.green,1
+                  ),
+                ],
+              ), SizedBox(height: 10),
+              Row(
+                //row3
+                children: [
+                  secondIconContainer(
+                      Icons.leak_add,
+                      "LEAKS",
+                      "NOT DETECTED",
+                      false,
+                      false,
+                      Colors.grey,2
+                  ),
+                  SizedBox(width: 20),
+                  secondIconContainer(
+                      Icons.device_thermostat,
+                      "THERMOSTAT",
+                      "OFF",
+                      true,
+                      true,
+                      Colors.grey,2
+                  ),
+                ],
               ),
-              SizedBox(width: 20),
-              secondIconContainer(
-                Icons.lightbulb,
-                "LIGHTS",
-                "ON",
-                true,
-                false,
-                Colors.green,1
-              ),
-            ],
-          ),
+              SizedBox(height: 10),
 
-          SizedBox(height: 10),
-          Row(
-            //row3
-            children: [
-              secondIconContainer(
-                Icons.leak_add,
-                "LEAKS",
-                "NOT DETECTED",
-                false,
-                false,
-                Colors.grey,2
-              ),
-              SizedBox(width: 20),
-              secondIconContainer(
-                Icons.device_thermostat,
-                "THERMOSTAT",
-                "OFF",
-                true,
-                true,
-                Colors.grey,2
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-
-          Container(
-            width: 300,
-            height: 70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Color(0xFFecf5fa),
-              border: Border(
-                top: BorderSide(color: Colors.white, width: 3.0),
-                left: BorderSide(color: Colors.white, width: 3.0),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  blurRadius: 8,
-                  offset: Offset(0, 2),
+              Container(
+                width: 300,
+                height: 70,
+                margin: EdgeInsets.only(left: 40),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Color(0xFFecf5fa),
+                  border: Border(
+                    top: BorderSide(color: Colors.white, width: 3.0),
+                    left: BorderSide(color: Colors.white, width: 3.0),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 8,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(child: Text("   ADD\n   NEW CONTROL")),
-                Spacer(),
-                Icon(Icons.add),
-              ],
-            ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(child: Text("   ADD\n   NEW CONTROL")),
+                    Spacer(),
+                    Icon(Icons.add),
+                  ],
+                ),
+              ),
+            ],
           ),
+
+
+
         ],
       ),
     );
