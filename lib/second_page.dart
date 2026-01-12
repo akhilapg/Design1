@@ -1,5 +1,3 @@
-// import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class SecondScreen extends StatelessWidget {
@@ -92,7 +90,7 @@ class SecondScreen extends StatelessWidget {
                 "OPEN",
                 true,
                 true,
-                Colors.green,
+                Colors.green,1
               ),
               SizedBox(width: 20),
               secondIconContainer(
@@ -101,7 +99,7 @@ class SecondScreen extends StatelessWidget {
                 "ON",
                 true,
                 false,
-                Colors.green,
+                Colors.green,1
               ),
             ],
           ),
@@ -116,7 +114,7 @@ class SecondScreen extends StatelessWidget {
                 "NOT DETECTED",
                 false,
                 false,
-                Colors.grey
+                Colors.grey,2
               ),
               SizedBox(width: 20),
               secondIconContainer(
@@ -125,7 +123,7 @@ class SecondScreen extends StatelessWidget {
                 "OFF",
                 true,
                 true,
-                Colors.grey,
+                Colors.grey,2
               ),
             ],
           ),
@@ -170,7 +168,7 @@ Widget secondIconContainer(
   String status,
   bool isSwitchNeeded,
   bool isSwitch,
-  Color color,
+  Color color,int index
 ) {
   return Column(
     children: [
@@ -217,7 +215,7 @@ Widget secondIconContainer(
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 13,
-                        color: Colors.green,
+                        color: index==1 ?Colors.green:Colors.grey,
                       ),
                     ),
                   ],
