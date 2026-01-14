@@ -1,3 +1,5 @@
+import 'package:design1_iotapp/first_page.dart';
+import 'package:design1_iotapp/second_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,30 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //Root widget
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          centerTitle: true,
-          title: Text('What do you thing you will mostly use?'),
-        ),
-
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Top on all that apply.This will help us\n customise your home page',
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
-
-      ),
-    );
+      home: FirstScreen(),
+      debugShowCheckedModeBanner: false,
+    ); //Root widget
   }
 }
